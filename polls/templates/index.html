@@ -5,14 +5,11 @@
 {% endblock %}
 
 {% block body %}
+  <ol>
   {% for question in questions %}
-    Question: {{ question.question_text }} <br />
-    Date Published: {{ question.pub_date }} <br />
-    Choices: <br />
-    {% for choice in question.choices.all %}
-      {{ choice.choice_text }} <br />
-      {{ choice.votes }}
-    {% endfor %}
-    <br />
+  <li>
+    <a href="{% url 'polls:detail' question.id %}"> Question: {{ question.question_text }} <br /> </a>
+  </li>
   {% endfor %}
+  </ol>
 {% endblock %}
